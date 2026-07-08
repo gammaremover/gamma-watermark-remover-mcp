@@ -5,6 +5,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-8b3dff.svg)](LICENSE)
 [![Web version](https://img.shields.io/badge/🌐%20Web%20version-gammaremover.com-8b3dff)](https://gammaremover.com)
 
+![Gamma Watermark Remover MCP server — AI agents remove the Made with Gamma badge](assets/banner.webp)
+
 An [MCP](https://modelcontextprotocol.io) server that lets **Claude Desktop, Claude Code, and any MCP client** remove the **"Made with Gamma"** watermark from PDF and PowerPoint (.pptx) files exported from [Gamma.app](https://gamma.app) — right on your machine. Just ask:
 
 > *"remove the gamma watermark from ~/Downloads/deck.pdf"*

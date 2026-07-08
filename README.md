@@ -13,6 +13,12 @@ An [MCP](https://modelcontextprotocol.io) server that lets **Claude Desktop, Cla
 
 Removal is **structural and lossless**: the badge image and its gamma.app hyperlink are deleted as document objects. Nothing is re-rendered, nothing is uploaded.
 
+## What is the Gamma Watermark Remover MCP Server?
+
+The Gamma Watermark Remover MCP server connects the [Model Context Protocol](https://modelcontextprotocol.io) to a document-cleaning engine, so AI assistants can remove the "Made with Gamma" watermark from Gamma.app exports on your behalf. Instead of opening a separate tool, you stay in your conversation: point Claude at an exported PDF or PowerPoint file, and the badge — a discrete document object with a gamma.app hyperlink — is deleted structurally. Your text stays selectable, your slides stay editable, and with the local server nothing ever leaves your machine.
+
+This is the same engine behind the [gammaremover.com](https://gammaremover.com) web app and the [gamma-watermark-remover CLI](https://github.com/gammaremover/gamma-watermark-remover), packaged for the MCP ecosystem: Claude Desktop, Claude Code, Cursor, Windsurf, and any other MCP-compatible client.
+
 ## Setup
 
 ### Claude Desktop
@@ -60,11 +66,31 @@ This server wraps the [gamma-watermark-remover](https://github.com/gammaremover/
 - **PDF** (`pypdf`): drops link annotations targeting `gamma.app`/`gamma.to` and the draw op of the small bottom-right badge image (transformation-matrix tracked, size-guarded so backgrounds are never touched)
 - **PPTX** (`python-pptx`): removes the gamma-hyperlinked shape from slide masters/layouts (where Gamma stores it) and slides
 
-## Related
+## FAQ
 
-- **No-install web version** (runs in your browser, no upload): [gammaremover.com](https://gammaremover.com)
-- **CLI + Python library**: [gammaremover/gamma-watermark-remover](https://github.com/gammaremover/gamma-watermark-remover)
-- **Agent skill** (Claude Code / OpenClaw): [gammaremover/gamma-watermark-remover-skill](https://github.com/gammaremover/gamma-watermark-remover-skill)
+**Which MCP clients does this work with?**
+Any client that speaks MCP over stdio or streamable HTTP: Claude Desktop, Claude Code, Cursor, Windsurf, Cline, and others. The stdio variant is the default; the hosted endpoint at `https://gammaremover.com/mcp` covers clients that cannot spawn local processes.
+
+**Do my files get uploaded?**
+With the local stdio server, never — processing happens on your machine. The hosted endpoint receives file content (base64, up to 30MB), processes it in memory only, and stores nothing.
+
+**What file formats are supported?**
+PDF and PowerPoint (.pptx) exports from Gamma.app. Legacy .ppt must be converted to .pptx first.
+
+**What happens if the watermark cannot be removed?**
+Some exports flatten the badge into the page image. The tool reports `may_remain` honestly instead of degrading your file with pixel inpainting.
+
+**Is this free?**
+Yes — MIT-licensed open source, no account, no quota.
+
+## Related Tools
+
+- **Web app** (browser-based, no upload): [gammaremover.com](https://gammaremover.com)
+- **CLI + Python library**: [gamma-watermark-remover](https://github.com/gammaremover/gamma-watermark-remover)
+- **Local web UI**: [gamma-watermark-remover-webui](https://github.com/gammaremover/gamma-watermark-remover-webui)
+- **MCP server** for Claude and AI agents: [gamma-watermark-remover-mcp](https://github.com/gammaremover/gamma-watermark-remover-mcp)
+- **Agent skill** for Claude Code and OpenClaw: [gamma-watermark-remover-skill](https://github.com/gammaremover/gamma-watermark-remover-skill)
+- **Curated Gamma resources**: [awesome-gamma](https://github.com/gammaremover/awesome-gamma)
 
 ## Responsible use
 

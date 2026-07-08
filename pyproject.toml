@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gamma-watermark-remover-mcp"
+version = "1.0.0"
+description = 'MCP server — let Claude & AI agents remove the "Made with Gamma" watermark from PDF/PPTX exports, locally.'
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "GammaRemover", email = "support@gammaremover.com" }]
+keywords = ["mcp", "mcp-server", "gamma", "watermark", "remover", "pdf", "pptx", "claude"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Office/Business",
+]
+dependencies = [
+    "mcp>=1.2",
+    "gamma-watermark-remover>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://gammaremover.com"
+Repository = "https://github.com/gammaremover/gamma-watermark-remover-mcp"
+
+[project.scripts]
+gamma-watermark-remover-mcp = "gamma_watermark_remover_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["gamma_watermark_remover_mcp"]

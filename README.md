@@ -3,7 +3,7 @@
 [![PyPI](https://img.shields.io/pypi/v/gamma-watermark-remover-mcp?color=8b3dff&label=PyPI)](https://pypi.org/project/gamma-watermark-remover-mcp/)
 [![MCP](https://img.shields.io/badge/MCP-server-8b3dff)](https://modelcontextprotocol.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-8b3dff.svg)](LICENSE)
-[![Web version](https://img.shields.io/badge/🌐%20Web%20version-gammaremover.com-8b3dff)](https://gammaremover.com)
+[![Web version](https://img.shields.io/badge/Web%20version-gammaremover.com-8b3dff)](https://gammaremover.com)
 
 ![Gamma Watermark Remover MCP server — AI agents remove the Made with Gamma badge](assets/banner.webp)
 

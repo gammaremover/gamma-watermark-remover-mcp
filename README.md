@@ -38,6 +38,10 @@ claude mcp add gamma-watermark-remover -- uvx gamma-watermark-remover-mcp
 
 The server speaks stdio. Command: `uvx gamma-watermark-remover-mcp` (or `pipx run gamma-watermark-remover-mcp`, or `pip install gamma-watermark-remover-mcp` then `gamma-watermark-remover-mcp`).
 
+### Remote endpoint (no install at all)
+
+A hosted streamable-HTTP endpoint is available at **`https://gammaremover.com/mcp`** for agents that can't run a local server. It accepts file content as base64 (≤30MB), processes **in memory only** — nothing is stored or logged. For maximum privacy prefer the local stdio server above or the [in-browser tool](https://gammaremover.com).
+
 ## Tools
 
 | Tool | What it does |

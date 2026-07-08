@@ -1,0 +1,8 @@
+# Smithery configuration — local stdio MCP server.
+# File-path based tools must run on the user's machine (files never leave it),
+# so this server is stdio-only by design; there is no remote HTTP deployment.
+startCommand:
+  type: stdio
+  configSchema: {}
+  commandFunction: |-
+    () => ({ command: "uvx", args: ["gamma-watermark-remover-mcp"] })
